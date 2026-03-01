@@ -54,6 +54,7 @@ type CLI struct {
 	Export     ExportCmd     `cmd:"" help:"Export bookmarks"`
 	Open       OpenCmd       `cmd:"" help:"Open bookmark in browser"`
 	Copy       CopyCmd       `cmd:"" help:"Copy bookmark URL to clipboard"`
+	Enrich     EnrichCmd     `cmd:"" help:"Generate enrichment scaffold records"`
 	Completion CompletionCmd `cmd:"" help:"Generate shell completions"`
 }
 

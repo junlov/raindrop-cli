@@ -19,7 +19,7 @@ func (c *BashCompletionCmd) Run() error {
     local prev="${COMP_WORDS[COMP_CWORD-1]}"
 
     # Main commands
-    local commands="add list get update delete search collections tags highlights import export open copy auth config version completion"
+    local commands="add list get update delete search collections tags highlights import export open copy enrich auth config version completion"
 
     # Subcommands
     local auth_cmds="setup login token status logout"
@@ -98,6 +98,7 @@ _raindrop() {
         'export:Export bookmarks'
         'open:Open bookmark in browser'
         'copy:Copy bookmark URL to clipboard'
+        'enrich:Generate enrichment scaffold records'
         'auth:Authentication and credentials'
         'config:Manage configuration'
         'version:Print version'
@@ -176,6 +177,7 @@ complete -c raindrop -n "__fish_use_subcommand" -a "import" -d "Import bookmarks
 complete -c raindrop -n "__fish_use_subcommand" -a "export" -d "Export bookmarks"
 complete -c raindrop -n "__fish_use_subcommand" -a "open" -d "Open in browser"
 complete -c raindrop -n "__fish_use_subcommand" -a "copy" -d "Copy URL"
+complete -c raindrop -n "__fish_use_subcommand" -a "enrich" -d "Generate enrichment scaffold records"
 complete -c raindrop -n "__fish_use_subcommand" -a "auth" -d "Authentication"
 complete -c raindrop -n "__fish_use_subcommand" -a "config" -d "Configuration"
 complete -c raindrop -n "__fish_use_subcommand" -a "version" -d "Print version"

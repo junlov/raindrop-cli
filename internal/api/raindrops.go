@@ -38,7 +38,7 @@ type CreateRaindropRequest struct {
 	Collection struct {
 		ID int `json:"$id"`
 	} `json:"collection,omitempty"`
-	PleaseParse bool `json:"pleaseParse,omitempty"` //nolint:tagliatelle // API uses camelCase
+	PleaseParse *struct{} `json:"pleaseParse,omitempty"` //nolint:tagliatelle // API uses camelCase
 }
 
 // UpdateRaindropRequest is the payload for updating a raindrop.

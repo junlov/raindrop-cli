@@ -48,10 +48,12 @@ func (c *AddCmd) Run(flags *RootFlags) error {
 	}
 
 	req := &api.CreateRaindropRequest{
-		Link:        c.URL,
-		Tags:        c.normalizeTags(),
-		Note:        c.Note,
-		PleaseParse: !c.NoFetch && c.Title == "",
+		Link: c.URL,
+		Tags: c.normalizeTags(),
+		Note: c.Note,
+	}
+	if !c.NoFetch && c.Title == "" {
+		req.PleaseParse = &struct{}{}
 	}
 	req.Collection.ID = collectionID
 
@@ -96,10 +98,10 @@ func (c *AddCmd) runBulk(client *api.Client, flags *RootFlags, collectionID int)
 
 	for _, u := range urls {
 		req := api.CreateRaindropRequest{
-			Link:        u,
-			Tags:        c.normalizeTags(),
-			PleaseParse: true,
+			Link: u,
+			Tags: c.normalizeTags(),
 		}
+		req.PleaseParse = &struct{}{}
 		req.Collection.ID = collectionID
 
 		items = append(items, req)
